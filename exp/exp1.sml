@@ -1,3 +1,4 @@
+(*
 1.
 能 非空表
 能 非空表
@@ -24,11 +25,11 @@ int 9001
 fun f (3 : int) : int = 9
     | f _ = 4;
 错误
-fun circ (r : real) : real = (real 2) * pi * r
+fun circ (r : real) : real = (real 2) * pi * r;
 错误
 fun semicirc : real = pi * r
 错误
-fun area (r : int) : real = pi *(real r)  *(real r) ;
+fun area (r : int) : real = pi *(real r)  *(real r);
 
 5.
 val it = 7 : int
@@ -44,14 +45,14 @@ val twice = fn : int -> int
 val it = 10 : int
 不合法，没有val
 不合法
-不合法
+不合法*)
 
-6.
+(*6.*)
 fun mult [ ]=1|mult(x::L)=x*(mult L);
 
 mult([1,2,3,4]);
 
-7.
+(*7.*)
 fun zip ([],_)=[] | zip(_,[])=[] | zip(x::L1,y::L2)=(x,y)::zip(L1,L2);
 
 zip(["a","b","c"],[1,2]);
@@ -67,24 +68,24 @@ fun unzip([])=([],[])
 
 unzip [("a",1),("b",2),("c",3)];
 
-当L1和L2表长相同时成立，否则不成立
+(*当L1和L2表长相同时成立，否则不成立*)
 
-8.
+(*8.*)
 fun Mult[]=1
     |Mult(r::R)=r*Mult(R);
 
 Mult([1,2,3,4]);
 
-9.
+(*9.*)
 fun mult ([], a) = a
     | mult (x :: L, a) = mult(L, x * a);
-a与list中所有整数的乘积
+(*a与list中所有整数的乘积*)
 fun Mult([],a)=a
     |Mult(r::R,a)=Mult(R,mult(r,1)*a);
 
 Mult([[1,2],[3,4]],5);
 
-10.
+(*10.*)
 fun double(0:int):int=0
     |double(n)=2+double(n-1)
 fun square 0=0
