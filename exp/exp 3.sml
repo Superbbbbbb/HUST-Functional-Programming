@@ -5,7 +5,7 @@ fun compare(x:int,y:int):order=
 	if y<x then GREATER else EQUAL;
 fun trav Empty = [ ]| trav (Node(t1, x, t2)) = trav t1 @ (x :: trav t2);
 
-1.
+*1.*
 fun split ([]:int list):(int list*int*int list)=([],0,[])
 	|split [x]=([],x,[])
 	|split [x,y]=([x],y,[])
@@ -19,20 +19,20 @@ fun listToTree([]:int list):tree=Empty
 		let val(L1,a,L2)=split L
 		in Node(listToTree L1,a,listToTree L2)
 		end;
-2.
+*2.*
 fun revT(Empty:tree):tree=Empty
 	|revT (Node(L,x,R))=Node(revT R,x,revT L);
 
 O(2^n) S(d^2)
 
-3  .
+*3.*
 fun binarySearch(Empty:tree,x:int)=false:bool
 	|binarySearch(Node(L,x,R),y)=case compare(x,y) of
 		EQUAL=>true
 		|_=>(if binarySearch(L,y)=true then true else
 			if binarySearch(R,y)=true then true else false);
 
-4.
+*4.*
 fun treecompare(Empty,_)=EQUAL
 	|treecompare(_,Empty)=EQUAL
 	|treecompare(Node(L1,x1,R1),Node(L2,x2,R2))=compare(x1,x2);
@@ -56,6 +56,4 @@ fun SwapDown(Empty)=Empty
 fun heapify(Empty)=Empty
 	|heapify(Node(L,x,R))=SwapDown(Node(heapify L,x,heapify R));
 
-O(nlogn) S(logn)
-
-
+*O(nlogn) S(logn)*
